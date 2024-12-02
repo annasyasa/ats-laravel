@@ -7,8 +7,11 @@ use App\Models\Post;
 
 //return type View
 use Illuminate\View\View;
-
+use App\Models\Tugas;
 use Illuminate\Http\Request;
+use App\Exports\postExport;
+use Maatwebsite\Excel\facades\Excel;
+
 
 class PostController extends Controller
 {
@@ -133,7 +136,11 @@ class PostController extends Controller
         //redirect to index
         return redirect()->route('post.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
+
+    public function exportExcel(){
+        return Excel::download(New postExport,'rekap_absen.xlsx');
+    }
+
+
+
 }
-
-
-

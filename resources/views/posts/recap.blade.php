@@ -17,23 +17,22 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <h3 class="text-center my-2">ABSEN PPLG SELASMA</h3>        
+                    <h3 class="text-center my-4">ABSEN PPLG SELASMA</h3>        
                     <hr>
                 </div>
-                <div class="d-flex" style="gap: 5px">
+                <div class="d-flex" style="gap: 20px">
                     <form action="" class="d-flex" style="gap: 10px">
                         <input class="form-control me-2" type="date" placeholder="Search" name="search" aria-label="Search">
                         <button class="btn btn-warning" type="submit">Cari</button>
                         <button class="btn btn-secondary" type="submit">Clear</button>
                     </form>
-                    
             </div>
-            <div class="d-flex justify-content-end mb-2">
+            <div class="d-flex justify-content-end">
                 <a href="{{ route('orders.export.excel') }}" class="btn btn-success">Export Excel</a>
             </div>
                 <div class="card border-0 shadow-sm rounded">
-                    <div class="card-body">
-                        <a href="{{ route('post.create') }}" class="btn btn-md btn-success mb-3">+ TAMBAH</a>
+                    <!-- <div class="card-body">
+                        <a href="{{ route('post.create') }}" class="btn btn-md btn-success mb-3">+ TAMBAH</a> -->
                         <table class="table table-bordered">
                             <thead>
                               <tr>
@@ -72,7 +71,7 @@
                           </table>  
                           {{ $posts->links() }}
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>

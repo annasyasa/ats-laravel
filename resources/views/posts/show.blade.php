@@ -1,3 +1,6 @@
+@extends('template.app', ['title' => 'History Absen || ROMBEL'])
+
+@section('content-dinamis')
 <!DOCTYPE html>
 <html lang="en">
 <head>

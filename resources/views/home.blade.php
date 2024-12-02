@@ -1,6 +1,9 @@
 @extends('template.app', ['title' => 'Home || ROMBEL'])
 
 @section('content-dinamis')
- <h1 class="mt-3">Ini beranda</h1>
- <h5 class="mt-3">web ini terinspirasi dari kejadian tugas sejarah</h5>
+ <div class="jumbotron py-4 px-5">
+    <h1 class="display-4">
+        Selamat Datang 
+    </h1>
+ </div>
 @endsection

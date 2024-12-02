@@ -18,31 +18,47 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            @if (Auth::check())
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link {{Route::is('Home') ? 'active' : ''}}" aria-current="page" href="{{ route('Home')}}">Beranda</a>
                     </li>
+                    @if (Auth::user()->role=='Guru')
                     <li class="nav-item">
                         <a class="nav-link {{Route::is('post.index') ? 'active' : ''}}" href="{{ route('post.index')}}">Absen</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link {{Route::is('users') ? 'active' : ''}}" href="{{ route('users')}}">akun</a>
+                    </li>
+                    @endif
+                    @if (Auth::user()->role=='Murid')
+                    <li class="nav-item">
                         <a class="nav-link {{Route::is('tugas.index') ? 'active' : ''}}" href="{{ route('tugas.index')}}">Tugas</a>
                     </li>
+                    @endif
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout')}}">Logout</a>
+                    </li>
                 </ul>
-                   <form class="d-flex" role="search" action="" method="GET">
-                
-                    {{-- mengaktifkan form di laravel :
-                        1 di <form> ada action dan method
-                            GET digunakan ketika form berfungsi buat search
-                            POST buat nambah / ngapus data
-                        2 ada button type submit 
-                        3 di <input> harus ada name
-                        4 @csrf
-                        5 action --}}
-                    <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                @if (Route::is ('post.index'))
+                   <form class="d-flex" role="search" action="{{ route('post.index') }}" method="GET">
+                @else 
+                <form class="d-flex" role="search" action="{{ route('users') }}" method="GET">
+                       @endif
+                       @endif
+                       
+                       {{-- mengaktifkan form di laravel :
+                       1 di <form> ada action dan method
+                           GET digunakan ketika form berfungsi buat search
+                           POST buat nambah / ngapus data
+                           2 ada button type submit 
+                           3 di <input> harus ada name
+                           4 @csrf
+                           5 action --}}
+                           <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="search">
+                           <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
             </div>
 
         </div>
@@ -56,8 +72,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" 
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" 
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     @stack('script')
+
 </body>
 
 </html>
