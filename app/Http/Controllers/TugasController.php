@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tugas;
+use Barryvdh\DomPDF\facade\PDF;
+
 
 class TugasController extends Controller
 {
@@ -132,5 +134,13 @@ class TugasController extends Controller
  
          //redirect to index
          return redirect()->route('tugas.index')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
+    public function downloadPDF($id)
+    {
+        $tgs = Tugas::find($id)->toArray();
+        view()->share('tgs',$tgs);
+        $pdf = PDF::loadView('tugas.show', $tgs);
+        return $pdf->download('receipt.pdf');
     }
 }

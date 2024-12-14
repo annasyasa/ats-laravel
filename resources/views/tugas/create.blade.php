@@ -1,3 +1,7 @@
+@extends('template.app', ['title' => 'Buat Tugas || ROMBEL'])
+
+@section('content-dinamis')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,3 +73,5 @@
 <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
 </body>
 </html>
+
+@endsection

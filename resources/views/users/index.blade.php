@@ -47,7 +47,7 @@
                                                 <a href="{{ route('users.edit', $item['id']) }}" class="btn btn-primary me-3">Edit</a>
                                                 <button class="btn btn-danger" onclick="showModal('{{$item->id}}', '{{$item->name}}')">Delete</button>
                                             </td>
-                                        </tr>
+                                        </tr>   
                                     @endforeach
                                 @else
                                     <tr>

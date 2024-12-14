@@ -1,3 +1,6 @@
+@extends('template.app', ['title' => 'Tampilan Tugas || ROMBEL'])
+
+@section('content-dinamis')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +16,16 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card border-0 shadow-sm rounded">
+                   <div id="back-wrap">
+                      <a href="{{ route('tugas.index')}}" class="btn-back">Kembali</a>
+                   </div>
+                   <div id="receipt">
+                    <a href="{{ route('download', $tgs['id'])}}" class="btn-print">Cetak (.pdf)</a>
+                   </div>
                     <div class="card-body">
-                        <h4>{{ $tgs->tugas }}</h4>
-                        <h4>{{ $tgs->mapel }}</h4>
-                        <h4>{{ $tgs->note }}</h4>                       
+                        <h4>Tugas : {{ $tgs['tugas'] }}</h4>
+                        <h4>Mata Pelajaran :{{ $tgs['mapel'] }}</h4>
+                        <h4>Deskripsi Tugas :{{ $tgs['note'] }}</h4>                       
                     </div>
                 </div>
             </div>
@@ -28,4 +37,4 @@
 </body>
 </html>
 
-
+@endsection

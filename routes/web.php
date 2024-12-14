@@ -53,6 +53,7 @@ Route::delete('/tugas/delete/{id}', [TugasController::class, 'destroy'])->name('
 Route::get('/tugas/show/{id}', [TugasController::class, 'show'])->name('tgs.show');
 Route::get('/tugas/edit{id}', [TugasController::class, 'edit'])->name('tgs.edit');
 Route::patch('/tugas/edit/{id}', [TugasController::class, 'update'])->name('tgs.update');
+Route::get('/download/{id}', [TugasController::class, 'downloadPDF'])->name('download');
 });
 
 

@@ -1,4 +1,4 @@
-@extends('template.app', ['title' => 'History Absen || ROMBEL'])
+@extends('template.app', ['title' => 'Tampilkan Absen || ROMBEL'])
 
 @section('content-dinamis')
 <!DOCTYPE html>
@@ -17,9 +17,9 @@
             <div class="col-md-8">
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <h4>{{ $post->name }}</h4>
-                        <h4>{{ $post->nis }}</h4>
-                        <h4>{{ $post->absen }}</h4>                       
+                        <h4>Nama : {{ $post->name }}</h4>
+                        <h4>NIS : {{ $post->nis }}</h4>
+                        <h4>Absen : {{ $post->absen }}</h4>                       
                     </div>
                 </div>
             </div>
@@ -32,3 +32,4 @@
 </html>
 
 
+@endsection
